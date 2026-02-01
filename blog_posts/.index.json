@@ -1,0 +1,18 @@
+{
+  "posts": [
+    {
+      "id": "hp-t530-router",
+      "title": "HP t530 Thin Client \u2014 OPNsense Router Build",
+      "file": "hp-t530-router/index.md",
+      "date": "2025-11-24",
+      "type": "folder"
+    },
+    {
+      "id": "thin-cluster",
+      "title": "My 5\u2011Node Thin Client Proxmox Cluster Docker Swarm",
+      "file": "thin-cluster/index.md",
+      "date": "2025-10-24",
+      "type": "folder"
+    }
+  ]
+}

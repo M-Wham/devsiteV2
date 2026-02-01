@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Contact - M-Wham DevSite</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Get in touch and connect with me on various platforms" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <link rel="icon" href="assets/images/icon.png" type="image/png" />
+    <link rel="icon" href="assets/images/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/images/icon.png" />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+    <!-- Menu Bar -->
+    <nav class="menubar">
+        <a href="index.html" class="menubar-item">File</a>
+        <a href="posts.html" class="menubar-item">Posts</a>
+        <a href="contact.html" class="menubar-item active">Contact</a>
+
+        <div class="menubar-spacer"></div>
+
+        <div class="menubar-right">
+            <a href="https://github.com/M-Wham" target="_blank" class="menubar-item">GitHub</a>
+            <button id="theme-toggle" aria-label="Toggle Theme">
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                </svg>
+                Theme
+            </button>
+        </div>
+    </nav>
+
+    <!-- Header with Logo -->
+    <header>
+        <a href="index.html" id="ascii-logo-link">
+            <pre
+                id="ascii-logo">__/\\\\____________/\\\\__/\\\______________/\\__/\\________/\\_____/\\\\\\\\\\_____/\\\\____________/\\\\________/\\\\\\\\\\\\_____/\\\\\\\\\\\\\\\\__/\\________/\\_
+ _\/\\\\________/\\\\\\_\/\\\_____________\/\\_\/\\\_______\/\\\___/\\\\\\\\\\\\\__\/\\\\________/\\\\\\_______\/\\\////////\\__\/\\///////////__\/\\\_______\/\\_
+  _\/\\//\\____/\\//\\_\/\\\_____________\/\\_\/\\\_______\/\\__/\\\/////////\\_\/\\//\\____/\\//\\_______\/\\______\\//\\_\/\\\_____________\\//\\______/\\__
+   _\/\\\///\\\/\\/_\/\\_\\//\\____/\\____/\\__\/\\\\\\\\\\\\\\_\/\\\_______\/\\_\/\\\///\\\/\\/_\/\\_______\/\\\_______\/\\_\/\\\\\\\\\______\\//\\____/\\___
+    _\/\\__\///\\\/___\/\\__\\//\\__/\\\\__/\\___\/\\\/////////_\/\\\\\\\\\\\\\\_\/\\__\///\\\/___\/\\_______\/\\\_______\/\\_\/\\\///////________\\//\\__/\\____
+     _\/\\____\\///_____\/\\___\\//\\/\\\\/\\/\\____\/\\\_______\/\\_\/\\\/////////_\/\\____\\///_____\/\\_______\/\\\_______\/\\_\/\\________________\\//\\/\\_____
+      _\/\\_____________\/\\____\\\\\\/\\/\\\\\_____\/\\\_______\/\\_\/\\\_______\/\\_\/\\_____________\/\\_______\/\\\_______/\\__\/\\_________________\\//\\______
+       _\/\\_____________\/\\_____\\//\\__\\//\\______\/\\\_______\/\\_\/\\\_______\/\\_\/\\_____________\/\\__/\\_\/\\\\\\\\\\/___\/\\\\\\\\\\\\\______\\//\\_______
+        _\\///______________\\///_______\\///____\\///_______\\///________\\///__\\///________\\///__\\///__\\////////////_____\\///////////////________\\///________</pre>
+        </a>
+    </header>
+
+    <!-- Main Content Area -->
+    <div class="page-content">
+        <main id="main-content">
+            <div class="content">
+
+                <!-- Contact Terminal -->
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-title">Contact.sh</div>
+                        <div class="terminal-buttons">
+                            <button class="terminal-button terminal-minimize" aria-label="Minimize"></button>
+                            <button class="terminal-button terminal-maximize" aria-label="Maximize"></button>
+                            <button class="terminal-button terminal-close" aria-label="Close"></button>
+                        </div>
+                    </div>
+                    <div class="terminal-content">
+                        <div class="terminal-prompt">cat contact_info.txt</div>
+                        <div class="terminal-output">
+                            <p>Connect with me on these platforms:</p>
+                        </div>
+                        <div class="terminal-prompt">ls -la links/</div>
+                        <div class="terminal-output">
+                            <div class="github-tree">
+                                <div class="tree-line">
+                                    <span class="tree-prefix">├── </span>
+                                    <a href="https://github.com/M-Wham" target="_blank"
+                                        class="github-project-link">GitHub</a>
+                                    <span> - Code repositories and projects</span>
+                                </div>
+                                <div class="tree-line">
+                                    <span class="tree-prefix">├── </span>
+                                    <span class="github-project-link">LinkedIn</span>
+                                    <span> - Professional network (coming soon)</span>
+                                </div>
+                                <div class="tree-line">
+                                    <span class="tree-prefix">├── </span>
+                                    <span class="github-project-link">Twitter/X</span>
+                                    <span> - Tech thoughts and updates (coming soon)</span>
+                                </div>
+                                <div class="tree-line">
+                                    <span class="tree-prefix">└── </span>
+                                    <span class="github-project-link">Email</span>
+                                    <span> - Direct contact (coming soon)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="terminal-prompt-line">
+                            <span class="terminal-prompt">_</span>
+                            <span class="terminal-cursor"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Info -->
+                <div class="markdown-section">
+                    <div class="markdown-content">
+                        <h2>Let's Connect</h2>
+                        <p>I'm always interested in collaborating on interesting projects, discussing new technologies,
+                            or just connecting with fellow developers.</p>
+                        <p>The best way to see what I'm currently working on is to check out my <a
+                                href="https://github.com/M-Wham" target="_blank">GitHub profile</a> where I share code
+                            and contribute to open source.</p>
+                        <h3>Open to</h3>
+                        <ul>
+                            <li>Collaborative coding projects</li>
+                            <li>Technical discussions and knowledge sharing</li>
+                            <li>Code reviews and feedback</li>
+                            <li>Open source contributions</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <footer class="site-footer">
+            <p>&copy; 2025 Built by M-Wham</p>
+        </footer>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

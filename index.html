@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>M-Wham DevSite</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Personal development site - exploring code, building projects, and documenting the journey" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <link rel="icon" href="assets/images/icon.png" type="image/png" />
+  <link rel="icon" href="assets/images/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/images/icon.png" />
+
+  <link rel="stylesheet" href="assets/css/style.css?v=7" />
+</head>
+
+<body>
+  <!-- Menu Bar (replaces sidebar) -->
+  <nav class="menubar">
+    <a href="index.html" class="menubar-item active">Home</a>
+    <a href="posts.html" class="menubar-item">Posts</a>
+
+    <div class="menubar-spacer"></div>
+
+    <div class="menubar-right">
+      <a href="https://github.com/M-Wham" target="_blank" class="menubar-item">GitHub</a>
+      <button id="theme-toggle" aria-label="Toggle Theme">
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" style="display:none;">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+        </svg>
+        Theme
+      </button>
+    </div>
+  </nav>
+
+  <!-- Header with Logo -->
+  <header>
+    <a href="index.html" id="ascii-logo-link">
+      <pre id="ascii-logo"> ██████   ██████ █████   ███   █████ █████   █████   █████████   ██████   ██████    ██████████   ██████████ █████   █████
+░░██████ ██████ ░░███   ░███  ░░███ ░░███   ░░███   ███░░░░░███ ░░██████ ██████    ░░███░░░░███ ░░███░░░░░█░░███   ░░███ 
+ ░███░█████░███  ░███   ░███   ░███  ░███    ░███  ░███    ░███  ░███░█████░███     ░███   ░░███ ░███  █ ░  ░███    ░███ 
+ ░███░░███ ░███  ░███   ░███   ░███  ░███████████  ░███████████  ░███░░███ ░███     ░███    ░███ ░██████    ░███    ░███ 
+ ░███ ░░░  ░███  ░░███  █████  ███   ░███░░░░░███  ░███░░░░░███  ░███ ░░░  ░███     ░███    ░███ ░███░░█    ░░███   ███  
+ ░███      ░███   ░░░█████░█████░    ░███    ░███  ░███    ░███  ░███      ░███     ░███    ███  ░███ ░   █  ░░░█████░   
+ █████     █████    ░░███ ░░███      █████   █████ █████   █████ █████     █████ ██ ██████████   ██████████    ░░███     
+░░░░░     ░░░░░      ░░░   ░░░      ░░░░░   ░░░░░ ░░░░░   ░░░░░ ░░░░░     ░░░░░ ░░ ░░░░░░░░░░   ░░░░░░░░░░      ░░░      
+</pre>
+    </a>
+  </header>
+
+  <!-- Main Content Area (Desktop) -->
+  <div class="page-content">
+    <main id="main-content">
+      <div class="content">
+        <!-- Terminal Welcome Message -->
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <div class="terminal-title">Welcome</div>
+            <div class="terminal-buttons">
+              <button class="terminal-button terminal-minimize" aria-label="Minimize"></button>
+              <button class="terminal-button terminal-maximize" aria-label="Maximize"></button>
+              <button class="terminal-button terminal-close" aria-label="Close"></button>
+            </div>
+          </div>
+          <div class="terminal-content">
+            <div class="terminal-output">
+              <p>This is my site, who would have guessed?</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Terminal -->
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <div class="terminal-title">Contact</div>
+            <div class="terminal-buttons">
+              <button class="terminal-button terminal-minimize" aria-label="Minimize"></button>
+              <button class="terminal-button terminal-maximize" aria-label="Maximize"></button>
+              <button class="terminal-button terminal-close" aria-label="Close"></button>
+            </div>
+          </div>
+          <div class="terminal-content">
+
+            <div class="terminal-output">
+              <p>Connect with me on:</p>
+            </div>
+
+            <div class="terminal-output">
+              <div class="github-tree">
+                <div class="tree-line">
+                  <span class="tree-prefix">├── </span>
+                  <a href="https://github.com/M-Wham" target="_blank" class="github-project-link">GitHub</a>
+                  <span> - Code repositories and projects</span>
+                </div>
+
+                <div class="tree-line">
+                  <span class="tree-prefix">├── </span>
+                  <a href="https://x.com/mwham_" target="_blank" class="github-project-link">Twitter/X</a>
+                  <span> - Tech thoughts and updates</span>
+                </div>
+                <div class="tree-line">
+                  <span class="tree-prefix">└── </span>
+                  <a href="mailto:mwams-mail@proton.me" class="github-project-link">Email</a>
+                  <span> - Direct contact</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Tip/Sponsor Terminal -->
+        <div class="terminal-window minimized">
+          <div class="terminal-header centered-header">
+            <div class="terminal-title">⌄ Tip / Sponsor ⌄</div>
+          </div>
+          <div class="terminal-content centered-content">
+            <div class="terminal-output">
+              <script src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
+              <script>
+                kofiwidget2.init('Support Me on Ko-fi', '#d9534f', 'mwham');
+                kofiwidget2.draw();
+              </script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p> Built 2025</p>
+    </footer>
+  </div>
+
+  <script src="assets/js/script.js"></script>
+</body>
+
+</html>

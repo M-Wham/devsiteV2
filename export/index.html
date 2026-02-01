@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DevSite</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <link rel="icon" href="assets/images/icon.png" type="image/png" />
+    <link rel="icon" href="assets/images/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/images/icon.png" />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+
+  <body>
+    <!-- Menu Bar (replaces sidebar) -->
+    <nav class="menubar">
+      <a href="index.html" class="menubar-item active">File</a>
+      <a href="#" class="menubar-item">Posts</a>
+      <a href="#" class="menubar-item">Contact</a>
+      
+      <div class="menubar-spacer"></div>
+      
+      <div class="menubar-right">
+        <a href="https://github.com/M-Wham" target="_blank" class="menubar-item">GitHub</a>
+        <button id="theme-toggle" aria-label="Toggle Theme">
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+          </svg>
+          Theme
+        </button>
+      </div>
+    </nav>
+
+    <!-- Header with Logo -->
+    <header>
+      <a href="index.html" id="ascii-logo-link">
+        <pre id="ascii-logo">__/\\\\____________/\\\\__/\\\______________/\\\__/\\\________/\\\_____/\\\\\\\\\_____/\\\\____________/\\\\________/\\\\\\\\\\\\_____/\\\\\\\\\\\\\\\__/\\\________/\\\_
+ _\/\\\\\\________/\\\\\\_\/\\\_____________\/\\\_\/\\\_______\/\\\___/\\\\\\\\\\\\\__\/\\\\\\________/\\\\\\_______\/\\\////////\\\__\/\\\///////////__\/\\\_______\/\\\_
+  _\/\\\//\\\____/\\\//\\\_\/\\\_____________\/\\\_\/\\\_______\/\\\__/\\\/////////\\\_\/\\\//\\\____/\\\//\\\_______\/\\\______\//\\\_\/\\\_____________\//\\\______/\\\__
+   _\/\\\\///\\\/\\\/_\/\\\_\//\\\____/\\\____/\\\__\/\\\\\\\\\\\\\\\_\/\\\_______\/\\\_\/\\\\///\\\/\\\/_\/\\\_______\/\\\_______\/\\\_\/\\\\\\\\\\\______\//\\\____/\\\___
+    _\/\\\__\///\\\/___\/\\\__\//\\\__/\\\\\__/\\\___\/\\\/////////\\\_\/\\\\\\\\\\\\\\\_\/\\\__\///\\\/___\/\\\_______\/\\\_______\/\\\_\/\\\///////________\//\\\__/\\\____
+     _\/\\\____\///_____\/\\\___\//\\\/\\\/\\\/\\\____\/\\\_______\/\\\_\/\\\/////////\\\_\/\\\____\///_____\/\\\_______\/\\\_______\/\\\_\/\\\________________\//\\\/\\\_____
+      _\/\\\_____________\/\\\____\//\\\\\\//\\\\\_____\/\\\_______\/\\\_\/\\\_______\/\\\_\/\\\_____________\/\\\_______\/\\\_______/\\\__\/\\\_________________\//\\\\\______
+       _\/\\\_____________\/\\\_____\//\\\__\//\\\______\/\\\_______\/\\\_\/\\\_______\/\\\_\/\\\_____________\/\\\__/\\\_\/\\\\\\\\\\\\/___\/\\\\\\\\\\\\\\\______\//\\\_______
+        _\///______________\///_______\///____\///_______\///________\///__\///________\///__\///______________\///__\///__\////////////_____\///////////////________\///________</pre>
+      </a>
+    </header>
+
+    <!-- Main Content Area (Desktop) -->
+    <div class="page-content">
+      <main id="main-content">
+        <div class="content">
+          <!-- Populated from content/pages/home.md -->
+          <div class="markdown-content">
+            <h2>Welcome to DevSite</h2>
+            <p>This is a personal development environment for building things, experimenting with code, and documenting whatever I'm exploring.</p>
+          </div>
+        </div>
+      </main>
+
+      <footer class="site-footer">
+        <p>&copy; 2025 Built by Joe Norman</p>
+      </footer>
+    </div>
+    
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,990 @@
+/* ==========================================
+   RETRO OS THEME - Windows 95/98/2000 Style
+   ========================================== */
+
+/* --- CSS Variables --- */
+:root {
+  /* Light theme - Mint Fresh */
+  --win-bg: #e0f2e0;              /* Mint green desktop */
+  --win-chrome: #d0e8d0;          /* Light mint chrome */
+  --win-chrome-light: #f0f8f0;    /* Very light mint highlight */
+  --win-chrome-dark: #a0c0a0;    /* Medium mint shadow */
+  --win-chrome-darker: #2d8659;   /* Dark green outer edge */
+  --win-titlebar: #2d8659;        /* Dark green title bars */
+  --win-titlebar-text: #ffffff;
+  --win-titlebar-border: #1a4d3a; /* Forest green border */
+  --win-content-bg: #ffffff;
+  --win-text: #1a4d3a;            /* Forest green text */
+  --win-text-secondary: #4caf50;  /* Green secondary */
+  --win-link: #2d8659;            /* Dark green links */
+  --win-button-face: #d0e8d0;
+  --win-selection: #4caf50;       /* Green selection */
+  --win-selection-text: #ffffff;
+  --header-bg: #d0e8d0;           /* Light mint header */
+  --logo-color: #1a4d3a;          /* Forest green logo */
+  --terminal-bg: #ffffff;
+  --terminal-text: #1a4d3a;
+  --terminal-prompt: #2d8659;
+}
+
+html[data-theme="dark"] {
+  /* Dark theme - Terminal Green (Classic CRT) */
+  --win-bg: #0a0a0a;              /* Pure black */
+  --win-chrome: #0f0f0f;          /* Near black chrome */
+  --win-chrome-light: #2a2a2a;    /* Dark highlight */
+  --win-chrome-dark: #000000;     /* Black shadow */
+  --win-chrome-darker: #00ff00;   /* Green border accent */
+  --win-titlebar: #000000;
+  --win-titlebar-text: #00ff00;
+  --win-titlebar-border: #00ff00;
+  --win-content-bg: #0a0a0a;
+  --win-text: #00dd00;
+  --win-text-secondary: #00aa00;
+  --win-link: #00ff00;
+  --win-button-face: #1a1a1a;
+  --win-selection: #00ff00;
+  --win-selection-text: #000000;
+  --header-bg: #000000;
+  --logo-color: #00ff00;
+  --terminal-bg: #000000;
+  --terminal-text: #00ff00;
+  --terminal-prompt: #00ff00;
+}
+
+/* --- Reset & Base --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+html {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  background: var(--win-bg);
+  color: var(--win-text);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* --- Beveled Border Mixins (as classes) --- */
+.bevel-raised {
+  border: 2px solid;
+  border-color: var(--win-chrome-light) var(--win-chrome-darker) var(--win-chrome-darker) var(--win-chrome-light);
+  box-shadow: inset 1px 1px 0 var(--win-chrome), inset -1px -1px 0 var(--win-chrome-dark);
+}
+
+.bevel-inset {
+  border: 2px solid;
+  border-color: var(--win-chrome-dark) var(--win-chrome-light) var(--win-chrome-light) var(--win-chrome-dark);
+  box-shadow: inset 1px 1px 0 var(--win-chrome-darker), inset -1px -1px 0 var(--win-chrome);
+}
+
+/* ==========================================
+   WINDOW COMPONENT
+   ========================================== */
+.window {
+  background: var(--win-chrome);
+  border: 2px solid;
+  border-color: var(--win-chrome-light) var(--win-chrome-darker) var(--win-chrome-darker) var(--win-chrome-light);
+  box-shadow: 
+    inset 1px 1px 0 var(--win-chrome),
+    inset -1px -1px 0 var(--win-chrome-dark),
+    2px 2px 8px rgba(0,0,0,0.3);
+  margin: 16px;
+}
+
+.window-titlebar {
+  background: var(--win-titlebar);
+  color: var(--win-titlebar-text);
+  padding: 3px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 12px;
+  user-select: none;
+}
+
+.window-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-left: 2px;
+}
+
+.window-title-icon {
+  width: 16px;
+  height: 16px;
+  image-rendering: pixelated;
+}
+
+.window-controls {
+  display: flex;
+  gap: 2px;
+}
+
+.window-btn {
+  width: 16px;
+  height: 14px;
+  background: var(--win-button-face);
+  border: 2px solid;
+  border-color: var(--win-chrome-light) var(--win-chrome-darker) var(--win-chrome-darker) var(--win-chrome-light);
+  font-family: "Marlett", sans-serif;
+  font-size: 8px;
+  line-height: 10px;
+  text-align: center;
+  cursor: pointer;
+  padding: 0;
+  color: #000;
+}
+
+.window-btn:active {
+  border-color: var(--win-chrome-darker) var(--win-chrome-light) var(--win-chrome-light) var(--win-chrome-darker);
+}
+
+.window-btn-min::after { content: "🗕"; font-size: 10px; }
+.window-btn-max::after { content: "🗖"; font-size: 10px; }
+.window-btn-close::after { content: "✕"; font-size: 10px; font-weight: bold; }
+
+.window-content {
+  background: var(--win-content-bg);
+  color: var(--win-text);
+  border: 2px solid;
+  border-color: var(--win-chrome-dark) var(--win-chrome-light) var(--win-chrome-light) var(--win-chrome-dark);
+  margin: 2px;
+  padding: 12px;
+}
+
+/* ==========================================
+   MENU BAR (replaces sidebar)
+   ========================================== */
+.menubar {
+  background: var(--win-chrome);
+  border-bottom: 2px solid var(--win-chrome-darker);
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+html[data-theme="dark"] .menubar {
+  background: #000000;
+  border-bottom: 1px solid #00ff00;
+}
+
+.menubar-item {
+  padding: 6px 14px;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--win-text);
+  font-size: 13px;
+  border: none;
+  border-right: 1px solid var(--win-chrome-darker);
+}
+
+html[data-theme="dark"] .menubar-item {
+  color: #00ff00;
+  border-right: 1px solid #004400;
+}
+
+.menubar-item:hover {
+  background: var(--win-selection);
+  color: var(--win-selection-text);
+  text-decoration: none;
+}
+
+html[data-theme="dark"] .menubar-item:hover {
+  background: #00ff00;
+  color: #000000;
+}
+
+.menubar-item.active {
+  background: var(--win-selection);
+  color: var(--win-selection-text);
+  text-decoration: none;
+}
+
+html[data-theme="dark"] .menubar-item.active {
+  background: #003300;
+  color: #00ff00;
+}
+
+.menubar-spacer {
+  flex: 1;
+}
+
+.menubar-right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding-right: 8px;
+}
+
+/* ==========================================
+   HEADER (Title Window)
+   ========================================== */
+header {
+  background: var(--header-bg);
+  border-bottom: 2px solid var(--win-chrome-darker);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: auto;
+}
+
+html[data-theme="dark"] header {
+  background: #000000;
+  border-bottom: 1px solid #00ff00;
+}
+
+#ascii-logo-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+#ascii-logo {
+  font-family: "Courier New", monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0;
+  line-height: 1.15;
+  white-space: pre;
+  color: #ffffff;
+  margin: 0;
+  text-shadow: none;
+  overflow-x: auto;
+}
+
+html[data-theme="dark"] #ascii-logo {
+  color: #00ff00;
+  text-shadow: none;
+}
+
+@media (max-width: 1200px) {
+  #ascii-logo {
+    font-size: 0.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #ascii-logo {
+    font-size: 0.28rem;
+  }
+}
+
+/* ==========================================
+   MAIN CONTENT AREA (Desktop)
+   ========================================== */
+.desktop {
+  flex: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.page-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#main-content {
+  flex: 1;
+}
+
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ==========================================
+   TERMINAL WINDOW (for home.sh, skills.sh)
+   ========================================== */
+.terminal-window {
+  background: var(--win-chrome);
+  border: 2px solid;
+  border-color: var(--win-chrome-light) var(--win-chrome-darker) var(--win-chrome-darker) var(--win-chrome-light);
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+  margin-bottom: 16px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.terminal-header {
+  background: var(--win-titlebar);
+  color: var(--win-titlebar-text);
+  padding: 4px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 12px;
+  border-bottom: 1px solid var(--win-titlebar-border);
+}
+
+html[data-theme="dark"] .terminal-header {
+  border: 1px solid #00ff00;
+  border-bottom: 1px solid #00ff00;
+}
+
+.terminal-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.terminal-title::before {
+  content: ">_";
+  font-family: monospace;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.terminal-buttons {
+  display: flex;
+  gap: 2px;
+}
+
+.terminal-button {
+  width: 16px;
+  height: 14px;
+  background: var(--win-button-face);
+  border: 1px solid var(--win-chrome-darker);
+  cursor: pointer;
+  padding: 0;
+  font-size: 8px;
+  line-height: 10px;
+  text-align: center;
+  color: var(--win-text);
+}
+
+html[data-theme="dark"] .terminal-button {
+  background: #000000;
+  border: 1px solid #00ff00;
+  color: #00ff00;
+}
+
+.terminal-button:active {
+  background: var(--win-selection);
+}
+
+.terminal-minimize::after { content: "_"; font-weight: bold; }
+.terminal-maximize::after { content: "□"; }
+.terminal-close::after { content: "×"; font-weight: bold; }
+
+.terminal-content {
+  background: var(--terminal-bg, #ffffff);
+  color: var(--terminal-text, #1a4d3a);
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  padding: 12px;
+  border: 1px solid var(--win-chrome-dark);
+  margin: 2px;
+  min-height: 100px;
+}
+
+html[data-theme="dark"] .terminal-content {
+  background: #000000;
+  color: #00ff00;
+  border: 1px solid #00ff00;
+}
+
+.terminal-prompt {
+  color: var(--terminal-prompt, #000000);
+  margin-bottom: 4px;
+}
+
+html[data-theme="dark"] .terminal-prompt {
+  color: #00ff00;
+}
+
+.terminal-prompt::before {
+  content: "$ ";
+  color: var(--win-text-secondary);
+}
+
+html[data-theme="dark"] .terminal-prompt::before {
+  color: #00aa00;
+}
+
+.terminal-output {
+  color: var(--terminal-text, #000000);
+  margin-bottom: 12px;
+  margin-left: 0;
+}
+
+html[data-theme="dark"] .terminal-output {
+  color: #00dd00;
+}
+
+.terminal-command {
+  margin-bottom: 8px;
+}
+
+.skills-tree {
+  color: var(--terminal-prompt, #000000);
+  font-family: "Consolas", "Courier New", monospace;
+  white-space: pre;
+  margin: 8px 0;
+}
+
+html[data-theme="dark"] .skills-tree {
+  color: #00ff00;
+}
+
+.github-tree {
+  color: var(--terminal-prompt, #000000);
+  font-family: "Consolas", "Courier New", monospace;
+  line-height: 1.6;
+  margin: 8px 0;
+}
+
+html[data-theme="dark"] .github-tree {
+  color: #00ff00;
+}
+
+.tree-line {
+  font-family: "Consolas", "Courier New", monospace;
+}
+
+.tree-prefix {
+  white-space: pre;
+}
+
+.github-project-link {
+  color: var(--terminal-prompt, #000000);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+html[data-theme="dark"] .github-project-link {
+  color: #00ff00;
+}
+
+.github-project-link:hover {
+  color: var(--win-link);
+  text-decoration: underline;
+}
+
+html[data-theme="dark"] .github-project-link:hover {
+  color: #66ff66;
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 14px;
+  background: var(--terminal-prompt, #000000);
+  animation: blink 1s step-end infinite;
+}
+
+html[data-theme="dark"] .terminal-cursor {
+  background: #00ff00;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.terminal-prompt-line {
+  display: flex;
+  align-items: center;
+}
+
+/* Terminal window styling */
+.skills-directory {
+  background: var(--win-chrome);
+  border: 2px solid var(--win-chrome-darker);
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+  margin: 16px auto;
+  max-width: 900px;
+  border-radius: 0;
+}
+
+html[data-theme="dark"] .skills-directory {
+  background: #000000;
+  border: 1px solid #00ff00;
+  box-shadow: none;
+}
+
+.skills-directory.minimized .terminal-content {
+  display: none;
+}
+
+.skills-directory.hidden {
+  display: none;
+}
+
+/* ==========================================
+   POST TILES (as file icons / list items)
+   ========================================== */
+.recent-posts, .posts-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-width: 900px;
+  margin: 0 auto 16px auto;
+  background: var(--win-chrome);
+  border: 2px solid var(--win-chrome-darker);
+  padding: 2px;
+}
+
+html[data-theme="dark"] .recent-posts,
+html[data-theme="dark"] .posts-grid {
+  background: #000000;
+  border: 1px solid #00ff00;
+}
+
+.posts-grid {
+  margin-top: 16px;
+}
+
+.recent-posts::before, .posts-grid::before {
+  content: "[] Recent Posts";
+  display: block;
+  background: var(--win-titlebar);
+  color: var(--win-titlebar-text);
+  padding: 4px 6px;
+  font-weight: bold;
+  font-size: 12px;
+  margin: -2px -2px 2px -2px;
+  border-bottom: 1px solid var(--win-chrome-darker);
+}
+
+html[data-theme="dark"] .recent-posts::before,
+html[data-theme="dark"] .posts-grid::before {
+  background: #000000;
+  color: #00ff00;
+  border-bottom: 1px solid #00ff00;
+}
+
+.posts-grid::before {
+  content: "[] All Posts";
+}
+
+.post-tile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+  background: var(--win-content-bg);
+  color: var(--win-text);
+  text-decoration: none;
+  border: 1px solid transparent;
+  font-size: 13px;
+}
+
+.post-tile:hover {
+  background: var(--win-selection);
+  color: var(--win-selection-text);
+  text-decoration: none;
+}
+
+html[data-theme="dark"] .post-tile {
+  background: #000000;
+  color: #00ff00;
+}
+
+html[data-theme="dark"] .post-tile:hover {
+  background: #00ff00;
+  color: #000000;
+}
+
+.post-tile::before {
+  content: ">";
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.post-tile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.post-tile-title {
+  font-weight: normal;
+  font-family: inherit;
+}
+
+.post-tile-date {
+  font-size: 12px;
+  color: var(--win-text-secondary);
+}
+
+.post-tile:hover .post-tile-date {
+  color: var(--win-selection-text);
+}
+
+/* ==========================================
+   MARKDOWN CONTENT (in windows)
+   ========================================== */
+.markdown-section {
+  background: var(--win-chrome);
+  border: 2px solid var(--win-chrome-darker);
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+  margin: 16px auto;
+  max-width: 900px;
+  padding: 0;
+  border-radius: 0;
+}
+
+html[data-theme="dark"] .markdown-section {
+  background: #000000;
+  border: 1px solid #00ff00;
+  box-shadow: none;
+}
+
+.markdown-section::before {
+  content: "[] Document";
+  display: block;
+  background: var(--win-titlebar);
+  color: var(--win-titlebar-text);
+  padding: 4px 6px;
+  font-weight: bold;
+  font-size: 12px;
+  border-bottom: 1px solid var(--win-chrome-darker);
+}
+
+html[data-theme="dark"] .markdown-section::before {
+  background: #000000;
+  color: #00ff00;
+  border-bottom: 1px solid #00ff00;
+}
+
+.markdown-section > *:not(:first-child) {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.markdown-section .post-date {
+  position: static;
+  display: block;
+  padding: 4px 12px;
+  background: var(--win-chrome);
+  font-size: 12px;
+  color: var(--win-text-secondary);
+  border-bottom: 1px solid var(--win-chrome-dark);
+}
+
+.markdown-content, .markdown-section > p, .markdown-section > div:not(.post-header) {
+  background: var(--win-content-bg);
+  color: var(--win-text);
+  padding: 12px;
+  border: 1px solid var(--win-chrome-dark);
+  margin: 2px;
+  border-radius: 0;
+}
+
+html[data-theme="dark"] .markdown-content,
+html[data-theme="dark"] .markdown-section > p,
+html[data-theme="dark"] .markdown-section > div:not(.post-header) {
+  background: #000000;
+  color: #00dd00;
+  border: 1px solid #00ff00;
+}
+
+.markdown-content h1, .markdown-content h2, .markdown-content h3,
+.markdown-section h1, .markdown-section h2, .markdown-section h3 {
+  color: var(--win-chrome-darker);
+  margin-top: 0;
+}
+
+html[data-theme="dark"] .markdown-content h1,
+html[data-theme="dark"] .markdown-content h2,
+html[data-theme="dark"] .markdown-content h3,
+html[data-theme="dark"] .markdown-section h1,
+html[data-theme="dark"] .markdown-section h2,
+html[data-theme="dark"] .markdown-section h3 {
+  color: #00ff00;
+}
+
+.markdown-content p, .markdown-content ul, .markdown-content ol {
+  line-height: 1.6;
+  margin: 8px 0;
+}
+
+.markdown-content img {
+  max-width: 100%;
+  height: auto;
+  border: 2px solid;
+  border-color: var(--win-chrome-dark) var(--win-chrome-light) var(--win-chrome-light) var(--win-chrome-dark);
+  display: block;
+  margin: 12px auto;
+}
+
+/* ==========================================
+   POST VIEW
+   ========================================== */
+.post-header {
+  background: var(--win-chrome);
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--win-chrome-dark);
+}
+
+.post-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--win-text);
+  margin: 0;
+}
+
+.post-date {
+  font-size: 12px;
+  color: var(--win-text-secondary);
+}
+
+/* ==========================================
+   BUTTONS (Classic 3D style)
+   ========================================== */
+.btn, button, input[type="submit"] {
+  background: var(--win-button-face);
+  border: 2px solid;
+  border-color: var(--win-chrome-light) var(--win-chrome-darker) var(--win-chrome-darker) var(--win-chrome-light);
+  padding: 4px 16px;
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  color: var(--win-text);
+}
+
+.btn:active, button:active, input[type="submit"]:active {
+  border-color: var(--win-chrome-darker) var(--win-chrome-light) var(--win-chrome-light) var(--win-chrome-darker);
+}
+
+.btn:focus, button:focus {
+  outline: 1px dotted #000;
+  outline-offset: -4px;
+}
+
+/* ==========================================
+   LINKS
+   ========================================== */
+a {
+  color: var(--win-link);
+  text-decoration: underline;
+}
+
+a:hover {
+  color: var(--win-link);
+}
+
+a:visited {
+  color: #404040;
+}
+
+html[data-theme="dark"] a {
+  color: #00ff00;
+}
+
+html[data-theme="dark"] a:visited {
+  color: #00aa00;
+}
+
+html[data-theme="dark"] a:hover {
+  color: #66ff66;
+}
+
+/* ==========================================
+   FOOTER (Status bar style)
+   ========================================== */
+footer, .site-footer {
+  background: var(--win-chrome);
+  border-top: 2px solid var(--win-chrome-darker);
+  padding: 4px 8px;
+  font-size: 12px;
+  color: var(--win-text-secondary);
+  display: flex;
+  align-items: center;
+}
+
+html[data-theme="dark"] footer,
+html[data-theme="dark"] .site-footer {
+  background: #000000;
+  border-top: 1px solid #00ff00;
+  color: #00aa00;
+}
+
+.site-footer p {
+  margin: 0;
+  padding: 2px 8px;
+  background: var(--win-content-bg);
+  border: 1px solid var(--win-chrome-dark);
+  flex: 1;
+}
+
+html[data-theme="dark"] .site-footer p {
+  background: #000000;
+  border: 1px solid #004400;
+  color: #00aa00;
+}
+
+/* ==========================================
+   THEME TOGGLE (as a button)
+   ========================================== */
+#theme-toggle {
+  background: var(--win-button-face);
+  border: 2px solid var(--win-chrome-darker);
+  padding: 4px 10px;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--win-text);
+  margin-right: 4px;
+}
+
+#theme-toggle:hover {
+  background: var(--win-selection);
+  color: var(--win-selection-text);
+}
+
+html[data-theme="dark"] #theme-toggle {
+  background: #000000;
+  border: 1px solid #00ff00;
+  color: #00ff00;
+}
+
+html[data-theme="dark"] #theme-toggle:hover {
+  background: #00ff00;
+  color: #000000;
+}
+
+#theme-toggle .moon-icon,
+#theme-toggle .sun-icon {
+  width: 14px;
+  height: 14px;
+}
+
+html[data-theme="dark"] #theme-toggle .moon-icon { display: none; }
+html[data-theme="dark"] #theme-toggle .sun-icon { display: block !important; }
+html:not([data-theme="dark"]) #theme-toggle .sun-icon { display: none; }
+
+/* ==========================================
+   SIDEBAR (Converted to horizontal nav)
+   ========================================== */
+#sidebar-layer {
+  display: none; /* Hide old sidebar */
+}
+
+#sidebar-toggle {
+  display: none; /* Hide toggle */
+}
+
+.sidebar-nav, .sidebar-content, .sidebar-footer {
+  display: none;
+}
+
+/* ==========================================
+   SCROLLBAR (Classic style)
+   ========================================== */
+::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--win-chrome);
+  border: 1px solid var(--win-chrome-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--win-button-face);
+  border: 2px solid var(--win-chrome-darker);
+}
+
+::-webkit-scrollbar-button {
+  background: var(--win-button-face);
+  border: 1px solid var(--win-chrome-darker);
+  height: 14px;
+}
+
+html[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: #000000;
+  border: 1px solid #004400;
+}
+
+html[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: #003300;
+  border: 1px solid #00ff00;
+}
+
+html[data-theme="dark"] ::-webkit-scrollbar-button {
+  background: #000000;
+  border: 1px solid #00ff00;
+}
+
+/* ==========================================
+   REMOVE OLD STYLES
+   ========================================== */
+.ascii-background, #ascii-background, #ascii-canvas, .ascii-overlay {
+  display: none !important;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+@media (max-width: 768px) {
+  .menubar {
+    flex-wrap: wrap;
+  }
+  
+  .menubar-item {
+    padding: 6px 8px;
+  }
+  
+  .terminal-window, .markdown-section, .skills-directory,
+  .recent-posts, .posts-grid {
+    margin: 8px;
+  }
+  
+  #ascii-logo {
+    font-size: 0.6rem;
+    overflow-x: auto;
+  }
+  
+  header {
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  #ascii-logo {
+    font-size: 0.4rem;
+  }
+  
+  .post-tile-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+}

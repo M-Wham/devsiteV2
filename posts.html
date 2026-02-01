@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Posts - M-Wham DevSite</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Blog posts and project updates from my development journey" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <link rel="icon" href="assets/images/icon.png" type="image/png" />
+    <link rel="icon" href="assets/images/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/images/icon.png" />
+
+    <link rel="stylesheet" href="assets/css/style.css?v=7" />
+</head>
+
+<body>
+    <!-- Menu Bar -->
+    <nav class="menubar">
+        <a href="index.html" class="menubar-item">Home</a>
+        <a href="posts.html" class="menubar-item active">Posts</a>
+        <div class="menubar-spacer"></div>
+
+        <div class="menubar-right">
+            <a href="https://github.com/M-Wham" target="_blank" class="menubar-item">GitHub</a>
+            <button id="theme-toggle" aria-label="Toggle Theme">
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                </svg>
+                Theme
+            </button>
+        </div>
+    </nav>
+
+    <!-- Header with Logo -->
+    <header>
+        <a href="index.html" id="ascii-logo-link">
+            <pre id="ascii-logo"> ██████   ██████ █████   ███   █████ █████   █████   █████████   ██████   ██████    ██████████   ██████████ █████   █████
+░░██████ ██████ ░░███   ░███  ░░███ ░░███   ░░███   ███░░░░░███ ░░██████ ██████    ░░███░░░░███ ░░███░░░░░█░░███   ░░███ 
+ ░███░█████░███  ░███   ░███   ░███  ░███    ░███  ░███    ░███  ░███░█████░███     ░███   ░░███ ░███  █ ░  ░███    ░███ 
+ ░███░░███ ░███  ░███   ░███   ░███  ░███████████  ░███████████  ░███░░███ ░███     ░███    ░███ ░██████    ░███    ░███ 
+ ░███ ░░░  ░███  ░░███  █████  ███   ░███░░░░░███  ░███░░░░░███  ░███ ░░░  ░███     ░███    ░███ ░███░░█    ░░███   ███  
+ ░███      ░███   ░░░█████░█████░    ░███    ░███  ░███    ░███  ░███      ░███     ░███    ███  ░███ ░   █  ░░░█████░   
+ █████     █████    ░░███ ░░███      █████   █████ █████   █████ █████     █████ ██ ██████████   ██████████    ░░███     
+░░░░░     ░░░░░      ░░░   ░░░      ░░░░░   ░░░░░ ░░░░░   ░░░░░ ░░░░░     ░░░░░ ░░ ░░░░░░░░░░   ░░░░░░░░░░      ░░░      
+</pre>
+        </a>
+    </header>
+
+    <!-- Main Content Area -->
+    <div class="page-content">
+        <main id="main-content">
+            <div class="content">
+
+                <!-- Posts List -->
+                <div class="recent-posts" id="posts-list">
+                    <!-- Posts will be loaded dynamically from blog_posts/ -->
+                </div>
+
+
+
+            </div>
+        </main>
+
+        <footer class="site-footer">
+            <p>&copy; 2025 Built by M-Wham</p>
+        </footer>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/blog.js"></script>
+
+</body>
+
+</html>
