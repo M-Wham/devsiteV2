@@ -726,7 +726,7 @@ html[data-theme="dark"] .markdown-section {
 }
 
 .markdown-section::before {
-  content: "[] Document";
+  content: "Document";
   display: block;
   background: var(--win-titlebar);
   color: var(--win-titlebar-text);
