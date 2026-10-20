@@ -193,7 +193,7 @@ a:hover { color: var(--text); }
 }
 .post-row__link:hover { background: var(--surface); }
 .post-row__date { font-size: 0.85rem; color: var(--muted); padding-top: 0.55rem; }
-.post-row__title { font-family: 'Jacquard 24', serif; font-weight: 400; font-size: 1.9rem; line-height: 1.15; letter-spacing: 0.03em; color: var(--accent); }
+.post-row__title { font-family: 'IM Fell English', serif; font-weight: 400; font-size: 1.85rem; line-height: 1.2; letter-spacing: 0.01em; color: var(--accent); }
 .post-row__link:hover .post-row__title { text-decoration: underline; text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
 .post-row__summary { font-size: 0.95rem; margin: 0.4rem 0 0.75rem; max-width: 40rem; }
 .post-row__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; font-size: 0.8rem; color: var(--muted); }
@@ -226,7 +226,7 @@ a:hover { color: var(--text); }
   .page-head h1 { font-size: 2.75rem; }
   .post-row__link { grid-template-columns: 1fr; padding: 1.25rem 0; }
   .post-row__date { padding-top: 0; order: -1; }
-  .post-row__title { font-size: 1.6rem; }
+  .post-row__title { font-size: 1.55rem; }
   .card { padding: 1.25rem; }
   .site-footer__inner { flex-direction: column; }
 }
