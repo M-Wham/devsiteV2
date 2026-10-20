@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="green">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Joseph Norman — self-taught developer in Liverpool. Go, Python, TypeScript, Linux. I build and self-host my own tools.">
+  <title>mwham.dev — Joseph Norman, self-taught developer</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a href="index.html" class="site-mark" aria-label="mwham.dev home">.Dev</a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="posts.html">Posts</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch colour theme">Theme</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__art">
+          <div id="hero-art" class="hero__img" role="img" aria-label="Engraving of tall skeletons standing among rocks, captioned .Dev"></div>
+        </div>
+        <div class="hero__text">
+          <p class="eyebrow">Liverpool, UK</p>
+          <h1 id="hero-title">Joseph Norman</h1>
+          <p class="hero__pitch">Self-taught developer in Liverpool. Go, Python, TypeScript, Linux. I build and self-host my own tools.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="projects.html">Projects</a>
+            <a class="btn" href="posts.html">Posts</a>
+            <a class="btn" href="https://github.com/M-Wham" rel="noopener noreferrer">GitHub</a>
+            <a class="btn" href="contact.html">Contact</a>
+          </div>
+          <dl class="glance">
+            <div><dt>Looking for</dt><dd>Junior backend, DevOps, MLOps</dd></div>
+            <div><dt>Background</dt><dd>5 years as a commercial jointer</dd></div>
+            <div><dt>Studying</dt><dd>Open University, Computing &amp; IT</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="work-title">
+        <div class="section__head">
+          <h2 id="work-title">Selected work</h2>
+          <a href="projects.html">All projects &rarr;</a>
+        </div>
+        <ul class="cards">
+        <li class="card">
+          <h3 class="card__title">socks-web-ui</h3>
+          <p class="card__problem">A self-hosted SOCKS5 proxy manager with a web UI, shipped as a single Go binary.</p>
+          <ul class="card__facts"><li>Up to 4 proxy slots</li><li>Routed through WireGuard and upstream hops, with optional chaining</li><li>Public, v1.0.0</li></ul>
+          <ul class="tags" aria-label="Stack"><li class="tag">Go</li><li class="tag">Svelte 5</li><li class="tag">TypeScript</li><li class="tag">WireGuard</li></ul>
+          <p class="card__links"><a href="https://github.com/M-Wham/sockswebui" rel="noopener noreferrer">Source on GitHub<span class="sr-only"> (socks-web-ui)</span></a></p>
+        </li>
+        <li class="card">
+          <h3 class="card__title">hermes</h3>
+          <p class="card__problem">A personal admin agent running on a Proxmox cluster, with Telegram chat and a LAN-only dashboard.</p>
+          <ul class="card__facts"><li>Every outbound email needs human approval via Telegram</li><li>OTP, 2FA and financial mail is moved aside before the LLM sees it</li><li>Daily age-encrypted config backups to a second host</li></ul>
+          <ul class="tags" aria-label="Stack"><li class="tag">Python</li><li class="tag">Shell</li><li class="tag">Proxmox</li><li class="tag">cron</li></ul>
+          <p class="card__links"><span class="is-text">Private repository</span></p>
+        </li>
+        <li class="card">
+          <h3 class="card__title">5-node thin-client cluster</h3>
+          <p class="card__problem">A homelab built from 27 used HP t530s at about £7 each, half of them resold.</p>
+          <ul class="card__facts"><li>Five nodes run Proxmox VE in one cluster</li><li>Docker Swarm with Portainer on top</li><li>Written up in a full build post</li></ul>
+          <ul class="tags" aria-label="Stack"><li class="tag">Proxmox</li><li class="tag">Docker Swarm</li><li class="tag">Portainer</li><li class="tag">Homelab</li></ul>
+          <p class="card__links"><a href="post-thin-cluster.html">Read the write-up<span class="sr-only"> (thin-client cluster)</span></a></p>
+        </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap site-footer__inner">
+      <p>&copy; 2026 Joseph Norman &middot; Liverpool, UK</p>
+      <ul>
+        <li><a href="mailto:mwams-mail@proton.me">mwams-mail@proton.me</a></li>
+        <li><a href="https://x.com/mwham" rel="noopener noreferrer">X</a></li>
+        <li><a href="https://ko-fi.com/mwham" rel="noopener noreferrer">Tip me</a></li>
+      </ul>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
