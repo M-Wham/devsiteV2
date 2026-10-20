@@ -11,7 +11,7 @@
     if (THEMES.indexOf(theme) === -1) theme = 'green';
     root.setAttribute('data-theme', theme);
     var btn = document.getElementById('theme-toggle');
-    if (btn) btn.textContent = 'Theme: ' + theme;
+    if (btn) btn.setAttribute('aria-label', 'Switch to ' + (theme === 'green' ? 'black' : 'green') + ' theme');
   }
 
   var fromUrl = new URLSearchParams(location.search).get('theme');

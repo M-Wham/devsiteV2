@@ -77,10 +77,13 @@ a:hover { color: var(--text); }
 .site-nav a[aria-current="page"] { color: var(--accent); border-bottom-color: var(--accent); }
 
 .theme-toggle {
-  font: inherit; font-size: 0.8rem; color: var(--muted);
-  background: transparent; border: 1px solid var(--line);
-  padding: 0.3rem 0.7rem; cursor: pointer; white-space: nowrap;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 2.5rem; height: 2.5rem; color: var(--muted);
+  background: transparent; border: 1px solid var(--line); cursor: pointer;
 }
+.theme-toggle .icon--moon { display: none; }
+:root[data-theme="black"] .theme-toggle .icon--sun { display: none; }
+:root[data-theme="black"] .theme-toggle .icon--moon { display: block; }
 .theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
 
 /* ── Buttons ── */
