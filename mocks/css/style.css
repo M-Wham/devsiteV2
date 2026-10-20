@@ -207,7 +207,7 @@ a:hover { color: var(--text); }
 @media (max-width: 960px) {
   .cards { grid-template-columns: 1fr; }
   .hero { grid-template-columns: 1fr; gap: 2rem; padding: 2rem 0 3rem; }
-  .hero__art { max-width: 260px; }
+  .hero__art { max-width: 260px; width: 100%; margin-inline: auto; }
   .posts-layout { grid-template-columns: 1fr; gap: 1.5rem; }
   .topics { position: static; order: -1; }
   .topics ul { display: flex; flex-wrap: wrap; gap: 0.5rem; }
